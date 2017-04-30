@@ -1,0 +1,37 @@
+{
+  "name": "gif-search",
+  "version": "1.0.0",
+  "description": "A javascript module for searching gif images",
+  "main": "dist/gif-search.min.js",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/selcher/gif-search.git"
+  },
+  "keywords": [
+    "gif"
+  ],
+  "author": "Selcher <selcher123@gmail.com> (http://selcher.github.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/selcher/gif-search/issues"
+  },
+  "homepage": "https://github.com/selcher/gif-search#readme",
+  "devDependencies": {
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "rollup": "^0.41.6",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-eslint": "^3.0.0",
+    "rollup-plugin-json": "^2.1.1",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^1.0.2"
+  },
+  "dependencies": {
+    "request": "^2.81.0"
+  }
+}
