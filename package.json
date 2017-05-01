@@ -1,8 +1,11 @@
 {
   "name": "gif-search",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A javascript module for searching gif images",
   "main": "dist/gif-search.min.js",
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "scripts": {
     "build": "rollup -c",
     "test": "nyc ava"
@@ -16,6 +19,9 @@
   ],
   "author": "Selcher <selcher123@gmail.com> (http://selcher.github.io)",
   "license": "MIT",
+  "files": [
+    "dist/"
+  ],
   "bugs": {
     "url": "https://github.com/selcher/gif-search/issues"
   },
