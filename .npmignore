@@ -1,4 +1,4 @@
 .babelrc
 .eslintrc.json
 rollup.config.json
-src/
+test/

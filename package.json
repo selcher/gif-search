@@ -5,7 +5,7 @@
   "main": "dist/gif-search.min.js",
   "scripts": {
     "build": "rollup -c",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc ava"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,10 @@
   },
   "homepage": "https://github.com/selcher/gif-search#readme",
   "devDependencies": {
+    "ava": "^0.19.1",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-es2015-rollup": "^3.0.0",
+    "nyc": "^10.3.0",
     "rollup": "^0.41.6",
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-commonjs": "^8.0.2",
@@ -33,5 +35,15 @@
   },
   "dependencies": {
     "request": "^2.81.0"
+  },
+  "ava": {
+    "files": [
+      "test/"
+    ],
+    "concurrency": 5,
+    "failFast": true,
+    "failWithoutAssertions": false,
+    "tap": true,
+    "powerAssert": true
   }
 }
