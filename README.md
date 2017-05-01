@@ -24,6 +24,12 @@ gifSearch.gifr('cat').then(
 npm install gif-search
 ```
 
+### Running the tests
+
+```
+npm test
+```
+
 ## Built With
 
 * [Gipy API](https://api.giphy.com/)
@@ -36,6 +42,8 @@ Please read [CONTRIBUTING.md](https://github.com/selcher/gif-search/blob/master/
 
 ## Development
 
+Clone the repository in an empty directory.
+
 Note:
 
 There is an [issue](https://github.com/request/request/issues/2483) with the aws-sign2 module used in the request module with rollup.
@@ -44,7 +52,7 @@ To get this working in your local development environment, you may need to manua
 
 ## Versioning
 
-The project uses [Sember](http://semver.org) for versioning. To check the released versions, see the [tags on this repository](https://github.com/selcher/gif-search/releases).
+The project uses [Semver](http://semver.org) for versioning. To check the released versions, see the [tags on this repository](https://github.com/selcher/gif-search/releases).
 
 ## License
 
