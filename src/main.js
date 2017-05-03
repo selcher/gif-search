@@ -6,7 +6,7 @@ import Request from 'request';
  * Search for a gif using GiphyApi
  */
 module.exports = {
-    gif: (input) => {
+    query: (input) => {
 
         return new Promise((resolve, reject) => {
 
@@ -31,7 +31,7 @@ module.exports = {
             });
         });
     },
-    gifr: (input) => {
+    random: (input) => {
 
         return new Promise((resolve, reject) => {
 
