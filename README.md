@@ -8,12 +8,12 @@ A javascript module for searching gif images
 import gifSearch from 'gif-search';
 
 // Search for a gif
-gifSearch.gif('cat').then(
+gifSearch.query('cat').then(
     gifUrl => console.log(gifUrl)
 );
 
 // Search for a random gif
-gifSearch.gifr('cat').then(
+gifSearch.random('cat').then(
     gifUrl => console.log(gifUrl)
 );
 ```
