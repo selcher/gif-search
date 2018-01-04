@@ -1,11 +1,15 @@
 import gifSearch from './../dist/gif-search.min';
 import test from 'ava';
 
+const isValidGifUrl = (url) => (
+    url.match(/\/.*?.gif/g) ? true : false
+);
+
 test('Gif search', async t => {
     const response = gifSearch.query('cat');
     const gifUrl = await response;
 
-    t.true(gifUrl.endsWith('.gif'));
+    t.true(isValidGifUrl(gifUrl));
 });
 
 test('Random gif search', async t => {
@@ -14,7 +18,7 @@ test('Random gif search', async t => {
     const gifUrl1 = await response1;
     const gifUrl2 = await response2;
 
-    t.true(gifUrl1.endsWith('.gif'));
-    t.true(gifUrl2.endsWith('.gif'));
+    t.true(isValidGifUrl(gifUrl1));
+    t.true(isValidGifUrl(gifUrl2));
     t.true(gifUrl1 !== gifUrl2);
 });
