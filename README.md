@@ -16,6 +16,9 @@ gifSearch.query('cat').then(
 gifSearch.random('cat').then(
     gifUrl => console.log(gifUrl)
 );
+
+// Change the API Key
+gifSearch.setAPIKey('my-api-key');
 ```
 
 ### Installing
