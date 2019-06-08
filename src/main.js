@@ -7,12 +7,22 @@ const replaceSpaceWithPlus = (str) => (
 );
 const api = {
     giphy: {
+        apiKey: '',
+        apiKeyDefault: 'dc6zaTOxFJmzC',
+        getAPIKey: () => (
+            api.giphy.apiKey ?
+            api.giphy.apiKey :
+            api.giphy.apiKeyDefault
+        ),
+        setAPIKey: (apiKey) => {
+            api.giphy.apiKey = apiKey;
+        },
         search: {
             url: (keywords) => {
                 return [
                     'http://api.giphy.com/v1/gifs/search?',
                     `q=${replaceSpaceWithPlus(keywords)}`,
-                    '&api_key=dc6zaTOxFJmzC&limit=1',
+                    `&api_key=${api.giphy.getAPIKey()}&limit=1`,
                     '&offset=0'
                 ].join('');
             },
@@ -25,7 +35,7 @@ const api = {
                 return [
                     'http://api.giphy.com/v1/gifs/random?',
                     `tag=${replaceSpaceWithPlus(keywords)}`,
-                    '&api_key=dc6zaTOxFJmzC&limit=1',
+                    `&api_key=${api.giphy.getAPIKey()}&limit=1`,
                     '&offset=0'
                 ].join('');
             },
@@ -40,6 +50,8 @@ const api = {
  * Search for a gif using GiphyApi
  */
 module.exports = {
+    getAPIKey: api.giphy.getAPIKey,
+    setAPIKey: api.giphy.setAPIKey,
     query: (input) => {
         const searchApi = api.giphy.search;
 
