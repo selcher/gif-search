@@ -8,20 +8,23 @@ const isValidGifUrl = (url) => (
     url.match(/\/.*?.gif/g) ? true : false
 );
 
-test('Set API Key', async t => {
-    const oldAPIKey = gifSearch.getAPIKey();
-    const newAPIKey = 'test';
+const oldAPIKey = gifSearch.getAPIKey();
+const resetAPIKey = () => { gifSearch.setAPIKey(oldAPIKey); };
 
+test('Set API Key', async t =>
+{
+    const newAPIKey = 'test';
     gifSearch.setAPIKey(newAPIKey);
-    console.log(gifSearch.getAPIKey(), ' = ', newAPIKey);
 
     t.true(gifSearch.getAPIKey() === newAPIKey);
 
-    gifSearch.setAPIKey(oldAPIKey);
+    resetAPIKey();
 });
 
-test('Gif search', async t => {
-    try {
+test('Gif search', async t =>
+{
+    try
+    {
         gifSearch.setAPIKey(API_KEY);
 
         const response = gifSearch.query('cat');
@@ -29,13 +32,30 @@ test('Gif search', async t => {
 
         t.true(isValidGifUrl(gifUrl));
     }
-    catch(e) {
+    catch(e)
+    {
         t.true(false, e);
     }
 });
 
-test('Random gif search', async t => {
-    try {
+test('Gif search - Missing API Key', async t =>
+{
+    try
+    {
+        resetAPIKey();
+        await gifSearch.query('cat');
+        t.true(false, 'Should throw an error');
+    }
+    catch(e)
+    {
+        t.true(e === 'Missing API Key');
+    }
+});
+
+test('Random gif search', async t =>
+{
+    try
+    {
         gifSearch.setAPIKey(API_KEY);
 
         const response1 = gifSearch.random('cat');
@@ -47,9 +67,22 @@ test('Random gif search', async t => {
         t.true(isValidGifUrl(gifUrl2));
         t.true(gifUrl1 !== gifUrl2);
     }
-    catch(e) {
+    catch(e)
+    {
         t.true(false, e);
     }
 });
 
-
+test('Random gif search - Missing API Key', async t =>
+{
+    try
+    {
+        resetAPIKey();
+        await gifSearch.random('cat');
+        t.true(false, 'Should throw an error');
+    }
+    catch(e)
+    {
+        t.true(e === 'Missing API Key');
+    }
+});
