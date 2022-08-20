@@ -5,7 +5,7 @@ A javascript module for searching gif images
 ## Getting Started
 
 ```
-import gifSearch from 'gif-search';
+import * as gifSearch from 'gif-search';
 
 // Set your Giphy API Key
 gifSearch.setAPIKey('api-key');
