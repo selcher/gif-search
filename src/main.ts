@@ -68,7 +68,7 @@ const api = {
               ].join('');
           },
           imageUrl: (data: GIPHY_API.RANDOM_RESULT) => (
-              data.data.image_url
+              data.data.images['fixed_height'].url
           )
       }
   }
@@ -82,6 +82,11 @@ export const getAPIKey = api.giphy.getAPIKey;
 export const setAPIKey = api.giphy.setAPIKey;
 export const query = (input: string) =>
 {
+  if (!getAPIKey())
+  {
+    return Promise.reject('Missing API Key');
+  }
+
   const searchApi = api.giphy.search;
 
   return new Promise((resolve, reject) => {
@@ -108,7 +113,13 @@ export const random = (input: string) =>
 {
   const randomApi = api.giphy.random;
 
-  return new Promise((resolve, reject) => {
+  if (!getAPIKey())
+  {
+    return Promise.reject('Missing API Key');
+  }
+
+  return new Promise((resolve, reject) =>
+  {
       Request(
           randomApi.url(input),
           (err: Error, response: any, body: string) => {
