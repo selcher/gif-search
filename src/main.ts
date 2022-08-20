@@ -68,7 +68,7 @@ const api = {
               ].join('');
           },
           imageUrl: (data: GIPHY_API.RANDOM_RESULT) => (
-              data.data.image_url
+              data.data.images['fixed_height'].url
           )
       }
   }
