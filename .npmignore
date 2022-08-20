@@ -1,4 +1,2 @@
-.babelrc
-.eslintrc.json
-rollup.config.json
+.env
 test/
