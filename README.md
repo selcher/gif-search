@@ -7,6 +7,9 @@ A javascript module for searching gif images
 ```
 import gifSearch from 'gif-search';
 
+// Set your Giphy API Key
+gifSearch.setAPIKey('api-key');
+
 // Search for a gif
 gifSearch.query('cat').then(
     gifUrl => console.log(gifUrl)
@@ -16,9 +19,6 @@ gifSearch.query('cat').then(
 gifSearch.random('cat').then(
     gifUrl => console.log(gifUrl)
 );
-
-// Change the API Key
-gifSearch.setAPIKey('my-api-key');
 ```
 
 ### Installing
@@ -36,8 +36,8 @@ npm test
 ## Built With
 
 * [Gipy API](https://api.giphy.com/)
-* [Rollup](https://github.com/rollup/rollup) - module bundler
 * [Request](https://github.com/request/request) - make http calls
+* [TypeScript](https://www.typescriptlang.org/)
 
 ## Contributing
 
@@ -47,11 +47,7 @@ Please read [CONTRIBUTING.md](https://github.com/selcher/gif-search/blob/master/
 
 Clone the repository in an empty directory.
 
-Note:
-
-There is an [issue](https://github.com/request/request/issues/2483) with the aws-sign2 module used in the request module with rollup.
-
-To get this working in your local development environment, you may need to manually fix the issue until the fix gets published on npm.
+Commit changes then create a pull request.
 
 ## Versioning
 

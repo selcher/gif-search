@@ -1,4 +1,7 @@
-import gifSearch from './../dist/gif-search.min';
+import 'dotenv/config';
+const API_KEY = process.env.GIPHY_API_KEY;
+
+import * as gifSearch from './../lib/esm/main.js';
 import test from 'ava';
 
 const isValidGifUrl = (url) => (
@@ -6,18 +9,21 @@ const isValidGifUrl = (url) => (
 );
 
 test('Set API Key', async t => {
-    const defaultAPIKey = gifSearch.getAPIKey();
+    const oldAPIKey = gifSearch.getAPIKey();
     const newAPIKey = 'test';
 
     gifSearch.setAPIKey(newAPIKey);
+    console.log(gifSearch.getAPIKey(), ' = ', newAPIKey);
 
-    t.true(gifSearch.getAPIKey() !== defaultAPIKey);
+    t.true(gifSearch.getAPIKey() === newAPIKey);
 
-    gifSearch.setAPIKey(defaultAPIKey);
+    gifSearch.setAPIKey(oldAPIKey);
 });
 
 test('Gif search', async t => {
     try {
+        gifSearch.setAPIKey(API_KEY);
+
         const response = gifSearch.query('cat');
         const gifUrl = await response;
 
@@ -30,6 +36,8 @@ test('Gif search', async t => {
 
 test('Random gif search', async t => {
     try {
+        gifSearch.setAPIKey(API_KEY);
+
         const response1 = gifSearch.random('cat');
         const response2 = gifSearch.random('cat');
         const gifUrl1 = await response1;
@@ -43,3 +51,5 @@ test('Random gif search', async t => {
         t.true(false, e);
     }
 });
+
+

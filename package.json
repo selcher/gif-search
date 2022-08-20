@@ -1,14 +1,17 @@
 {
   "name": "gif-search",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "A javascript module for searching gif images",
-  "main": "dist/gif-search.min.js",
+  "main": "lib/cjs/main.js",
+  "module": "lib/esm/main.js",
+  "types": "lib/cjs/main.d.ts",
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=12.0.0"
   },
   "scripts": {
-    "build": "rollup -c",
-    "test": "nyc ava"
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+    "prepublishOnly": "npm run build",
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -20,36 +23,29 @@
   "author": "Selcher <selcher123@gmail.com> (http://selcher.github.io)",
   "license": "MIT",
   "files": [
-    "dist/"
+    "lib/"
   ],
   "bugs": {
     "url": "https://github.com/selcher/gif-search/issues"
   },
   "homepage": "https://github.com/selcher/gif-search#readme",
   "devDependencies": {
-    "ava": "^0.19.1",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-preset-es2015-rollup": "^3.0.0",
-    "nyc": "^10.3.0",
-    "rollup": "^0.41.6",
-    "rollup-plugin-babel": "^2.7.1",
-    "rollup-plugin-commonjs": "^8.0.2",
-    "rollup-plugin-eslint": "^3.0.0",
-    "rollup-plugin-json": "^2.1.1",
-    "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-uglify": "^1.0.2"
+    "@types/request": "^2.48.8",
+    "ava": "^4.3.1",
+    "typescript": "^4.7.4"
   },
   "dependencies": {
-    "request": "^2.81.0"
+    "dotenv": "^16.0.1",
+    "request": "^2.88.2"
   },
+  "type": "module",
   "ava": {
     "files": [
-      "test/"
+      "test/**/*"
     ],
     "concurrency": 5,
     "failFast": true,
     "failWithoutAssertions": false,
-    "tap": true,
-    "powerAssert": true
+    "verbose": true
   }
 }
