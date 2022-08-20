@@ -5,6 +5,11 @@
   "main": "lib/cjs/main.js",
   "module": "lib/esm/main.js",
   "types": "lib/cjs/main.d.ts",
+  "type": "module",
+  "exports": {
+    "import": "./lib/esm/main.js",
+    "require": "./lib/cjs/main.js"
+  },
   "engines": {
     "node": ">=12.0.0"
   },
