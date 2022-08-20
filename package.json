@@ -1,6 +1,6 @@
 {
   "name": "gif-search",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "A javascript module for searching gif images",
   "main": "lib/cjs/main.js",
   "module": "lib/esm/main.js",
